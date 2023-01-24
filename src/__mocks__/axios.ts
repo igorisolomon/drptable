@@ -72,8 +72,8 @@ const pageUpdate = {
             {
                 "id": 1,
                 "email": "new@email.com",
-                "first_name": "New",
-                "last_name": "Name",
+                "first_name": "Solomon",
+                "last_name": "Igori",
                 "avatar": "https://reqres.in/img/faces/1-image.jpg"
             },
             {

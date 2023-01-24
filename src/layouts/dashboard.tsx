@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import DrpTable from "../components/Table";
 import { Box } from "@mui/system";
 import { GridColDef } from "@mui/x-data-grid";
-import { IUserList } from "../utils/interfaces";
+import { IUser, IUserList } from "../utils/interfaces";
 import HttpService from "../utils/httpService";
 import { ClipLoader } from "react-spinners";
 import { Avatar } from "@mui/material";
@@ -23,18 +23,18 @@ const columns: GridColDef[] = [
             src={params.value}
             alt={`${params.row.first_name} ${params.row.last_name}`}
           />
-          {params.value.username}
         </>
       );
     },
   },
-  { field: "first_name", headerName: "First name", width: 200 },
-  { field: "last_name", headerName: "Last name", width: 200 },
+  { field: "first_name", headerName: "First name", width: 200, editable: true },
+  { field: "last_name", headerName: "Last name", width: 200, editable: true },
   {
     field: "email",
     headerName: "Email",
     flex: 1,
     minWidth: 300,
+    editable: true,
   },
 ];
 
@@ -48,8 +48,21 @@ const Dashboard = () => {
     setLoading(true);
     try {
       const { data } = await HttpService.get(`/api/users?page=${pageNumber}`);
-      console.log(data);
       setRecord(data);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setError(error as Error);
+      setLoading(false);
+    }
+  };
+
+  const editData = async (id: string, payload: { [x: string]: string; }) => {
+    setLoading(true);
+    setLoading(false);
+    try {
+      const { data } = await HttpService.patch(`/api/users/${id}`, payload);
+      console.log(data);
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -93,6 +106,7 @@ const Dashboard = () => {
             userData={record}
             columns={columns}
             setPage={setPageNumber}
+            edit={editData}
           />
         )
       )}

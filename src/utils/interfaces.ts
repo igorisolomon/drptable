@@ -6,7 +6,7 @@ export interface IRow {
     age: number | null
 }
 
-export interface IDatum {
+export interface IUser {
     id: number;
     email: string;
     first_name: string;
@@ -24,6 +24,6 @@ export interface IUserList {
     per_page: number;
     total: number;
     total_pages: number;
-    data: IDatum[];
+    data: IUser[];
     support: ISupport;
 }
