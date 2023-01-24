@@ -1,14 +1,26 @@
-import React from 'react'
-import Header from '../components/Header'
+import { Box } from "@mui/system";
+import React from "react";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import Table from "../components/Table";
 
-type Props = {}
+type Props = {};
 
 const Dashboard = (props: Props) => {
   return (
-    <div>
-        <Header />
-    </div>
-  )
-}
+    <Box
+      sx={{
+        width: "100vw",
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between"
+      }}
+    >
+      <Header />
+      <Footer />
+    </Box>
+  );
+};
 
-export default Dashboard
+export default Dashboard;
