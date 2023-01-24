@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import DrpTable from "../components/Table";
 import { Box } from "@mui/system";
 import { GridColDef } from "@mui/x-data-grid";
-import { IUser, IUserList } from "../utils/interfaces";
+import { IUserList } from "../utils/interfaces";
 import HttpService from "../utils/httpService";
 import { ClipLoader } from "react-spinners";
 import { Avatar } from "@mui/material";
@@ -71,9 +71,14 @@ const Dashboard = () => {
     }
   };
 
+  const memoizedGetData=useCallback(
+    getData,
+    [pageNumber]
+   )
+
   useEffect(() => {
-    getData();
-  }, [pageNumber]);
+    memoizedGetData();
+  }, [memoizedGetData, pageNumber]);
 
   return (
     <Box

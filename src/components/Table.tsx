@@ -2,12 +2,9 @@ import * as React from "react";
 import {
   DataGrid,
   GridCellEditCommitParams,
-  GridCellEditStopParams,
-  GridCellEditStopReasons,
   GridColDef,
-  MuiEvent,
 } from "@mui/x-data-grid";
-import { IUser, IUserList } from "../utils/interfaces";
+import { IUserList } from "../utils/interfaces";
 import { Container, Pagination } from "@mui/material";
 
 type TableType = {
@@ -16,12 +13,6 @@ type TableType = {
   setPage: React.Dispatch<React.SetStateAction<number>>;
   edit: (id: string, payload: { [x: string]: string }) => Promise<void>;
 };
-
-interface ICell {
-  id: number;
-  field: string;
-  value: string;
-}
 
 const DrpTable = ({ userData, columns, setPage, edit }: TableType) => {
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
