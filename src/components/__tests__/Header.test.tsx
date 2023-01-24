@@ -4,6 +4,6 @@ import Header from '../Header';
 
 test('renders learn react link', () => {
   render(<Header />);
-  const linkElement = screen.getByText(/DRP Test/i);
-  expect(linkElement).toBeInTheDocument();
+  const HeaderContent = screen.getByText(/DRP Test/i);
+  expect(HeaderContent).toBeInTheDocument();
 });
