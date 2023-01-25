@@ -87,3 +87,7 @@ To allow users to edit the table, we created an `EditTable` component. This comp
 ### Cleaning Up Data
 
 Finally, we cleaned up the data before displaying it in the table. This involved removing any unnecessary fields and formatting the data in a way that was easy to display in the table.
+
+## Conclusion
+
+Building a table with React required the use of various tools and techniques, including Material-UI, Jest, and Enzyme. By following a structured approach and writing test cases, we were able to build a functional and maintainable table that met the requirements of the project.
