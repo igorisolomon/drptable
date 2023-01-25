@@ -4,6 +4,10 @@ This document describes the process of building a table with React by the DRP gr
 
 URL: [https://drptable-igorisolomon.vercel.app/](https://drptable-igorisolomon.vercel.app/)
 
+# How to Edit the table
+
+Double click on the cell containing the First Name, Last Name or Email you want to Edit
+
 ## Technology
 
 - React
